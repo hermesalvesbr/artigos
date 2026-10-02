@@ -12,6 +12,7 @@ Publicado em **https://hermesalvesbr.github.io/artigos/**.
 
 ## Outras cópias
 
+- Internet Archive (02/10/2026): https://archive.org/details/daqui-de-araripina
 - Academia.edu (02/10/2026): https://www.academia.edu/176666719/Daqui_De_Araripina_Do_Araripe_2026_
 
 ## Como está montado
@@ -41,7 +42,13 @@ Por isso o repositório ficou **privado** até o fim da eleição. Depois do ple
 o texto vira registro histórico, e a nota no topo de cada página diz onde e
 quando ele saiu primeiro.
 
-Para colocar no ar, a partir de 05/10/2026:
+A publicação está agendada: `scripts/publicar.sh` roda pelo timer
+`~/.config/systemd/user/artigos-publicar.timer` em 05/10/2026 18:00 (persistente:
+se a máquina estiver desligada, roda quando ligar). Ele tem trava de data, abre o
+repositório, ativa o Pages, espera o artigo responder 200 e avisa o IndexNow.
+O registro fica em `publicar.log`.
+
+Para fazer à mão, a partir de 05/10/2026:
 
 ```bash
 gh repo edit hermesalvesbr/artigos --visibility public --accept-visibility-change-consequences

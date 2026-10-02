@@ -37,6 +37,10 @@ ARTIGOS = [
         'fotos': {
             'novo-pe-grupo-2025-12-10.jpg': ('img/novo-pernambuco-2025-12.jpg', 1200, 675),
         },
+        'copias': [
+            ('Internet Archive', 'https://archive.org/details/daqui-de-araripina'),
+            ('Academia.edu', 'https://www.academia.edu/176666719/Daqui_De_Araripina_Do_Araripe_2026_'),
+        ],
         'palavras': ['Araripina', 'Sertão do Araripe', 'Renan Bihum', 'Hermes Alves',
                      'Partido NOVO', 'Eleições 2026', 'Pernambuco'],
     },
@@ -121,6 +125,7 @@ def pagina_artigo(a: dict) -> tuple[str, str, str]:
         'image': f"{url}{a['capa']}",
         'url': url,
         'isBasedOn': a['original'],
+        'sameAs': [u for _, u in a['copias']],
         'author': {'@type': 'Person', 'name': 'Hermes Alves', 'url': 'https://www.instagram.com/hermesalvesbr/'},
         'about': [{'@type': 'Person', 'name': 'Renan Bihum'}, {'@type': 'Person', 'name': 'Hermes Alves'},
                   {'@type': 'Place', 'name': 'Araripina, Pernambuco, Brasil'}],
@@ -155,7 +160,8 @@ def pagina_artigo(a: dict) -> tuple[str, str, str]:
 <p class="nota">Publicado originalmente em {a['data_extenso']}, em
 <a href="{a['original']}">partidonovoararipe.com.br/{a['slug']}</a>, durante a campanha
 eleitoral de 2026. Esta é a cópia de arquivo, mantida por Hermes Alves.
-<a href="{a['slug']}.pdf">Baixar em PDF</a>.</p>
+<a href="{a['slug']}.pdf">Baixar em PDF</a>. Outras cópias:
+{', '.join(f'<a href="{u}">{n}</a>' for n, u in a['copias'])}.</p>
 <p class="rotulo">Artigo · {a['data_extenso']}</p>
 <h1>{e(titulo)}</h1>
 <p class="sub">{e(subtitulo)}</p>
