@@ -10,6 +10,10 @@ Publicado em **https://hermesalvesbr.github.io/artigos/**.
 |---|---|---|
 | [Daqui. De Araripina. Do Araripe.](daqui-de-araripina/) | 02/10/2026 | partidonovoararipe.com.br/daqui-de-araripina |
 
+## Outras cópias
+
+- Academia.edu (02/10/2026): https://www.academia.edu/176666719/Daqui_De_Araripina_Do_Araripe_2026_
+
 ## Como está montado
 
 - `fonte/*.md` é o texto. `gerar.py` transforma em `<slug>/index.html`,
